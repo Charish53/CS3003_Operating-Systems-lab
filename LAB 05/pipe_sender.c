@@ -36,3 +36,45 @@ int main()
     
     return 0;
 }
+
+
+//============sender 2================//
+/*
+//CS22B1095 REDDIPALLI SAI CHARISH
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/shm.h>
+#include<sys/msg.h>
+#include<stdlib.h>
+#include<string.h>
+# define MAX 20
+struct msg
+{
+    long int msg_type;
+    char msg_text[MAX];
+};
+int main()
+{
+    int msgid;
+    char buffer[20];
+    msgid=msgget((key_t)1095,0666 | IPC_CREAT);
+    if(msgid==-1)
+    {
+        printf("error\n");
+        exit(0);
+    }
+    struct msg m;
+    m.msg_type=1; // msg type
+    printf("sender 2 is entering the message: \n");
+    scanf("%s",buffer);
+    strcpy(m.msg_text,buffer);
+    if(msgsnd(msgid,&m,MAX,0)==-1)
+    printf("message not sent\n");
+    printf("sender 2 : Sending message to queue.\n");
+    
+    return 0;
+}
+*/
+
+
+
