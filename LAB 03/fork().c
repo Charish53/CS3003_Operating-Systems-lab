@@ -24,6 +24,9 @@ Perform the following operations in a different process.
 //CS22B1095
 //REDDIPALLI SAI CHARISH
 #include<stdio.h>
+#include<stdlib.h>
+#include<sys/wait.h>
+#include<sys/types.h>
 #include<unistd.h>
 int a[100];
 int main(){
