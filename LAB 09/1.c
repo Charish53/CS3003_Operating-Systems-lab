@@ -20,13 +20,10 @@ The implementation should include functions to handle the actions of thinking, b
 #define EATING 0
 #define LEFT (phnum + 4) % N
 #define RIGHT (phnum + 1) % N
-
 int state[N];
 int phil[N] = { 0, 1, 2, 3, 4 };
-
 sem_t mutex;
 sem_t S[N];
-
 void test(int phnum)
 {
     if (state[phnum] == HUNGRY && state[LEFT] != EATING && state[RIGHT] != EATING){
@@ -98,5 +95,5 @@ int main()
     for (i = 0; i < N; i++)
         pthread_join(thread_id[i], NULL);
 }
-
+ 
 

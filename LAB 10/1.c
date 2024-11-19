@@ -119,7 +119,7 @@ int main() {
     int need[proc][res];
     int process;
     int req[res];
-
+ 
     calculateNeed(need, max, alloc);
 
     if (!isSafe(alloc, avail, need)) {
