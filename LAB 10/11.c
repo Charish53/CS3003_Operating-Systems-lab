@@ -5,25 +5,9 @@
 #define res 4
 
 // Declare global variables
-int alloc[proc][res] = {
-    {0, 1, 0, 2}, // P0
-    {1, 0, 2, 1}, // P1
-    {1, 3, 1, 0}, // P2
-    {0, 0, 2, 0}, // P3
-    {2, 2, 0, 1}, // P4
-    {0, 2, 1, 2}  // P5
-};
-
-int max[proc][res] = {
-    {3, 2, 1, 2}, // P0
-    {1, 5, 3, 4}, // P1
-    {2, 3, 1, 4}, // P2
-    {0, 6, 3, 2}, // P3
-    {4, 2, 1, 3}, // P4
-    {2, 3, 3, 2}  // P5
-};
-
-int avail[res] = {3, 2, 2, 1};
+int alloc[proc][res];
+int max[proc][res];
+int avail[res];
 int need[proc][res];
 
 void calculateNeed() {
@@ -110,6 +94,27 @@ void reqres(int process, int req[]) {
 }
 
 int main() {
+    printf("Enter the Allocation matrix (6 processes, 4 resources):\n");
+    for (int i = 0; i < proc; i++) {
+        printf("P%d: ", i);
+        for (int j = 0; j < res; j++) {
+            scanf("%d", &alloc[i][j]);
+        }
+    }
+
+    printf("Enter the Maximum matrix (6 processes, 4 resources):\n");
+    for (int i = 0; i < proc; i++) {
+        printf("P%d: ", i);
+        for (int j = 0; j < res; j++) {
+            scanf("%d", &max[i][j]);
+        }
+    }
+
+    printf("Enter the Available resources (4 resources):\n");
+    for (int i = 0; i < res; i++) {
+        scanf("%d", &avail[i]);
+    }
+
     calculateNeed();
 
     if (!isSafe()) {
